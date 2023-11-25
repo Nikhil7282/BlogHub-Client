@@ -5,7 +5,9 @@ const { createContext,useReducer, useEffect, useCallback } = require("react");
 export const initialState={
     loading:false,
     data:[],
-    error:null
+    error:null,
+    showSearchResult:false,
+    searchResults:[]
 }
 
 export const reducer=(state,action)=>{
@@ -33,6 +35,10 @@ export const reducer=(state,action)=>{
       filteredPost.likes.splice(action.payload.index,1)
       const newData=[...state.data,filteredPost]
       return {...state,loading:false,data:newData}
+    }
+    else if(action.type==="Search_Results"){
+      // console.log(state);
+      return {...state,showSearchResult:true,searchResults:action.payload}
     }
     else{
       return state

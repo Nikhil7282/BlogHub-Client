@@ -47,7 +47,7 @@ function UserPost() {
       <Container className="text-center mt-5">
         <div className="d-flex flex-wrap justify-content-center mt-5">
           {/* {console.log(userPost)} */}
-          {userPost.map((card) => (
+          {userPost.length===0?<h1>No Post Yet</h1>:userPost.map((card) => (
             <Card key={card._id} style={{ width: "18rem", margin: "10px" }}>
               <Card.Body>
                 <Card.Title>{card.title}</Card.Title>

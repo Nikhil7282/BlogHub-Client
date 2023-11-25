@@ -5,7 +5,6 @@ import SignUp from './Pages/UserPages/SignUp';
 import Home from './components/Home';
 import AddPost from './Pages/PostsPages/AddPost'
 import UserPost from './Pages/PostsPages/UserPost'
-import NavbarComponent from './components/Navbar';
 import ProtectedRoute from "./authorization/ProtectedRoute"
 import PublicRoute from './authorization/PublicRoute';
 import EditPost from './Pages/PostsPages/EditPost';
@@ -15,11 +14,16 @@ import NewNavbar from './components/NewNavbar';
 import SearchList from './components/Search/SearchList';
 import ForgotPassword from './components/ForgetPassword/ForgetPassword';
 import ResetPassword from './components/ForgetPassword/ResetPassword';
+import { useContext } from 'react';
+import { postContext } from './context/globalContext';
 
 // export const url = 'http://localhost:8000'
 export const url="https://blohhub.onrender.com"
 
 function App() {
+
+  const {state}=useContext(postContext)
+  // console.log(state);
   
   return (
     <div className="App">
@@ -83,6 +87,7 @@ function App() {
           </Route>
         <Route path='/*' element={<Navigate to='/login'/>}/>
       </Routes>
+      {state.showSearchResult && <SearchList className="ResultComponent"/>}
     </div>
   );
 }

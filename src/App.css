@@ -132,6 +132,44 @@ body{
   background-color: #efefef;
 }
 
+.dataResult {
+  position: absolute;
+  margin-top: 5px;
+  width: 300px;
+  height: 200px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.dataResult::-webkit-scrollbar {
+  display: none;
+}
+
+.dataResult .dataItem {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  color: black;
+}
+
+.dataItem p {
+  margin-left: 10px;
+}
+a{
+  text-decoration: none;
+}
+
+/* a:hover {
+  background-color: lightgrey;
+} */
+
+#clearBtn {
+  cursor: pointer;
+}
+
 
 @media only screen and (max-width:850px) {
   .navbar .leftSide .links a{
@@ -184,7 +222,3 @@ body{
     font-size: 25px;
   }
 }
-
-
-
-
