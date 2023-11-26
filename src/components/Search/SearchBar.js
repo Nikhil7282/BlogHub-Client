@@ -3,29 +3,43 @@ import { IoSearch } from "react-icons/io5";
 import { postContext } from "../../context/globalContext";
 
 const SearchBar = () => {
-  const {state,dispatch} = useContext(postContext);
+  const { state } = useContext(postContext);
+  const [showResults, setShowResults] = useState(false);
+  const [results, setResults] = useState([]);
+
   // console.log(state);
-  // console.log(state);
-  const handleChange = async(e) => {
-    console.log(e);
+  const handleChange = (e) => {
     const filteredPost = state.data.filter((post) => {
       return (
         e.target.value && post.title.toLowerCase().includes(e.target.value)
       );
     });
-    // console.log(filteredPost);
-    dispatch({type:"Search_Results",payload:filteredPost})
+    setResults(filteredPost);
+    // console.log(results);
   };
-  const handleClick = () => {};
+  const handleClick = (e) => {
+    setShowResults(true);
+  };
   return (
-    <>
-      <div className="searchBar">
-        <input type="text" placeholder="Search" onChange={handleChange}/>
-        <button onClick={handleClick}>
-          <IoSearch />
-        </button>
+    <div className="searchBar" style={{ position: "relative" }}>
+      <input
+        type="text"
+        placeholder="Search"
+        onChange={handleChange}
+        onFocus={() => setShowResults(true)}
+        onBlur={() => setShowResults(false)}
+      />
+      <div className="select" style={{ display: showResults ? "" : "none" }}>
+        {results.length === 0 ? (
+          <div>No Post</div>
+        ) : (
+          results.map((data, index) => <div key={index}>{data.title}</div>)
+        )}
       </div>
-    </>
+      <button onClick={handleClick}>
+        <IoSearch />
+      </button>
+    </div>
   );
 };
 

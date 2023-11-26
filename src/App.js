@@ -11,7 +11,6 @@ import EditPost from './Pages/PostsPages/EditPost';
 import Dashboard from './components/Dashboard';
 import PostPage from './Pages/PostsPages/PostPage';
 import NewNavbar from './components/NewNavbar';
-import SearchList from './components/Search/SearchList';
 import ForgotPassword from './components/ForgetPassword/ForgetPassword';
 import ResetPassword from './components/ForgetPassword/ResetPassword';
 import { useContext } from 'react';
@@ -22,7 +21,7 @@ export const url="https://blohhub.onrender.com"
 
 function App() {
 
-  const {state}=useContext(postContext)
+  // const {state}=useContext(postContext)
   // console.log(state);
   
   return (
@@ -87,7 +86,6 @@ function App() {
           </Route>
         <Route path='/*' element={<Navigate to='/login'/>}/>
       </Routes>
-      {state.showSearchResult && <SearchList className="ResultComponent"/>}
     </div>
   );
 }
