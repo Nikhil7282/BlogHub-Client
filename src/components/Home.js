@@ -6,6 +6,7 @@ import React,{useContext} from "react";
 import { Container, Navbar, Nav, Card } from "react-bootstrap";
 import { postContext } from "../context/globalContext.js";
 import NewNavbar from "./NewNavbar.js";
+import Loader from "./Loader.js";
 
 // const initialState={
 //   loading:false,
@@ -42,8 +43,13 @@ function Home(){
 
   if(state.loading===true){
     return(
+      <Loader/>
+    )
+  }
+  if(state.error){
+    return(
       <div>
-          <h1>Loading...</h1>
+        <h1>Something Went Wrong..</h1>
       </div>
     )
   }

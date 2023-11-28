@@ -21,7 +21,7 @@ const SearchBar = () => {
     setShowResults(true);
   };
   return (
-    <div className="searchBar" style={{ position: "relative" }}>
+    <div className="searchBar" style={{ position: "relative"}}>
       <input
         type="text"
         placeholder="Search"
@@ -29,7 +29,9 @@ const SearchBar = () => {
         onFocus={() => setShowResults(true)}
         onBlur={() => setShowResults(false)}
       />
-      <div className="select" style={{ display: showResults ? "" : "none" }}>
+      <div className="select" 
+      style={{ display: showResults ? "" : "none" }}
+      >
         {results.length === 0 ? (
           <div>No Post</div>
         ) : (

@@ -44,9 +44,7 @@ export const reducer=(state,action)=>{
       return state
     }
 }
-
 export const postContext=createContext(initialState)
-
 const PostProvider=({children})=>{
     const [state,dispatch]=useReducer(reducer,initialState)
     // console.log(state);

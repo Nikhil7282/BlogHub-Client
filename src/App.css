@@ -155,6 +155,9 @@ body {
 .select-collapse {
   animation: collapse 1s linear;
 }
+.loader{
+  margin-top: 200px;
+}
 @keyframes collapse {
   from {
     max-height: 200px; /* Change this value to the height you want when expanded */

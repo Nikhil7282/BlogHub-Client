@@ -8,6 +8,7 @@ import { toast } from "react-toastify";
 import { AiFillLike } from "react-icons/ai";
 import { postContext } from "../context/globalContext.js";
 import NewNavbar from "./NewNavbar.js";
+import Loader from "./Loader.js";
 
 function Dashboard() {
   // const storage=sessionStorage.getItem('userId')
@@ -98,7 +99,14 @@ function Dashboard() {
   };
 
   if (state.loading === true) {
-    return <h1>Loading...</h1>;
+    return <Loader/>;
+  }
+  if(state.error){
+    return(
+      <div>
+        <h1>Something Went Wrong..</h1>
+      </div>
+    )
   }
   return (
     <div>

@@ -7,6 +7,7 @@ import { url } from "../../App";
 import { AiFillDelete } from "react-icons/ai";
 import { toast } from "react-toastify";
 import { commentReducer, commentState } from "./State";
+import Loader from "../../components/Loader";
 
 function PostPage() {
   const [render, rerender] = useState(false);
@@ -92,7 +93,7 @@ function PostPage() {
   };
   if(state.loading===true){
     return (
-      <h1>Loading Comments...</h1>
+      <Loader/>
     )
   }
   return (
